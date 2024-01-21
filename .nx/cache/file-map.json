@@ -49,36 +49,40 @@
   "fileMap": {
     "nonProjectFiles": [
       {
-        "file": "apps/backend/go.sum",
-        "hash": "8454544957607601373"
+        "file": "README.md",
+        "hash": "8133354554588138211"
       },
       {
-        "file": "apps/backend/go.mod",
-        "hash": "11662437931591954432"
-      },
-      {
-        "file": ".gitignore",
-        "hash": "14693736236760269784"
+        "file": "apps/backend/database/connect.go",
+        "hash": "4860187921121693569"
       },
       {
         "file": "package.json",
         "hash": "9290540296178470381"
       },
       {
-        "file": "README.md",
-        "hash": "8133354554588138211"
+        "file": "apps/backend/go.sum",
+        "hash": "1878944009585756967"
       },
       {
-        "file": "apps/backend/main.go",
-        "hash": "3244421341483603138"
+        "file": "apps/backend/go.mod",
+        "hash": "908661775797122373"
+      },
+      {
+        "file": "nx.json",
+        "hash": "3433631285036091687"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "16936441711144470533"
       },
       {
-        "file": "nx.json",
-        "hash": "3433631285036091687"
+        "file": "apps/backend/main.go",
+        "hash": "2779638921766339617"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "14693736236760269784"
       }
     ],
     "projectFileMap": {
