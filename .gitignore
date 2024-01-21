@@ -15,6 +15,7 @@ nx/nx-cloud*
 .nx
 .nx/cache/*
 daemon.log
+file-map.json
 # System files
 .DS_Store
 Thumbs.db
