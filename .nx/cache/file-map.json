@@ -53,20 +53,20 @@
         "hash": "1681607307474623543"
       },
       {
-        "file": "README.md",
-        "hash": "4591275785087058285"
-      },
-      {
         "file": "nx.json",
         "hash": "3433631285036091687"
       },
       {
-        "file": "package.json",
-        "hash": "9290540296178470381"
+        "file": "README.md",
+        "hash": "2662881996701348454"
       },
       {
         "file": "tsconfig.base.json",
         "hash": "16936441711144470533"
+      },
+      {
+        "file": "package.json",
+        "hash": "9290540296178470381"
       }
     ],
     "projectFileMap": {
