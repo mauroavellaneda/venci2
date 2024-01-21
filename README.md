@@ -63,6 +63,4 @@ We welcome contributions to Venci2. Please read our Contribution Guidelines for 
 
 MIT
 
----
 
-Feel free to modify and personalize this README template according to the specifics of your project and the technologies you are using.
