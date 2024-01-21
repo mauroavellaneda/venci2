@@ -9,7 +9,7 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="venci2" />
+      <NxWelcome title="Venci2" />
     </StyledApp>
   );
 }
