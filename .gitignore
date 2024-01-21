@@ -13,7 +13,8 @@ build/
 # Nx specific
 nx/nx-cloud*
 .nx
-
+.nx/cache/*
+daemon.log
 # System files
 .DS_Store
 Thumbs.db
