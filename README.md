@@ -1,28 +1,26 @@
-# Venci2
-
-# [Venci2] - Content Management System
+# Venci2 - Content Management System
 
 ## Project Overview
 
-[Venci2] is a custom-built Content Management System (CMS) designed to streamline content creation, management, and delivery for digital platforms. Our CMS will empower users with intuitive content management tools and ensure seamless content delivery to external websites via a robust API.
+Venci2 is a custom-built Content Management System (CMS) designed to streamline content creation, management, and delivery for digital platforms. Our CMS will empower users with intuitive content management tools and ensure seamless content delivery to external websites via a robust API.
 
 ## Features
 
 ### 1. Content Creation and Management
 - **User Interface (UI):** A sleek, user-friendly UI for content creation and editing, including WYSIWYG editors and media management tools.
-- **Backend Logic:** Robust server-side logic to handle CRUD operations (create, read, update, delete) and content organization.
+- **Backend Logic:** Robust server-side logic to handle CRUD operations and content organization.
 
 ### 2. Content Storage
-- **Database:** Utilizes [Database Choice] for efficient storage and retrieval of content data.
-- **File Storage:** Integration with [Cloud/File Storage Service] for secure and scalable media file storage.
+- **Database:** Utilizes PostgreSQL for efficient storage and retrieval of content data.
+- **File Storage:** Integration with Amazon S3 for secure and scalable media file storage.
 
 ### 3. Content Delivery
-- **API:** A well-documented [RESTful/GraphQL] API for content delivery, facilitating easy integration with external websites.
+- **API:** A well-documented RESTful API for content delivery, facilitating easy integration with external websites.
 - **Caching:** Advanced caching mechanisms to enhance content delivery speed and reduce server load.
 
 ### 4. Security and Access Control
 - **Authentication and Authorization:** Robust security protocols to manage user access and protect content integrity.
-- **API Security:** Secure API access through [API Keys/OAuth/JWT] to ensure authorized usage.
+- **API Security:** Secure API access through API Keys to ensure authorized usage.
 
 ### 5. Integration with External Websites
 - **API Documentation:** Comprehensive API documentation for seamless integration with external digital platforms.
@@ -59,11 +57,11 @@
 
 ## Contributing
 
-We welcome contributions to [Venci2]. Please read our [Contribution Guidelines] for details on how to submit changes.
+We welcome contributions to Venci2. Please read our Contribution Guidelines for details on how to submit changes.
 
 ## License
 
-[Specify the license type, e.g., MIT, GPL, etc.]
+MIT
 
 ---
 
