@@ -11,6 +11,7 @@ type Article struct {
 	Title   string `json:"title"`
 	Content string `json:"content"`
 	Author  string `json:"author"`
+	Done    bool   `json:"done"`
 	// CreatedAt   time.Time `json:"created_at"`
 	// UpdatedAt   time.Time `json:"updated_at"`
 	// PublishedAt time.Time `json:"published_at"`
@@ -37,6 +38,44 @@ func main() {
 
 		article.ID = len(articles) + 1
 		articles = append(articles, *article)
+		return c.JSON(articles)
+	})
+
+	app.Patch("/api/articles/:id/done", func(c *fiber.Ctx) error {
+		id, error := c.ParamsInt("id")
+
+		if error != nil {
+			return c.Status(401).SendString("invalid id")
+		}
+
+		for i, article := range articles {
+			if article.ID == id {
+				articles[i].Done = true
+				break
+			}
+		}
+
+		return c.JSON(articles)
+	})
+
+	app.Get("/api/articles", func(c *fiber.Ctx) error {
+		return c.JSON(articles)
+	})
+
+	app.Delete("/api/articles/:id", func(c *fiber.Ctx) error {
+		id, error := c.ParamsInt("id")
+
+		if error != nil {
+			return c.Status(401).SendString("invalid id")
+		}
+
+		for i, article := range articles {
+			if article.ID == id {
+				articles = append(articles[:i], articles[i+1:]...)
+				break
+			}
+		}
+
 		return c.JSON(articles)
 	})
 
