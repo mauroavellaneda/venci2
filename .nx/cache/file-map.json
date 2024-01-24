@@ -47,7 +47,122 @@
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "tsconfig.base.json",
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "16591771903022963855"
+      },
+      {
+        "file": "apps/backend/go.mod",
+        "hash": "908661775797122373"
+      },
+      {
+        "file": "apps/backend/database/connect.go",
+        "hash": "4860187921121693569"
+      },
+      {
+        "file": "package.json",
+        "hash": "9290540296178470381"
+      },
+      {
+        "file": "apps/backend/go.sum",
+        "hash": "1878944009585756967"
+      },
+      {
+        "file": "apps/backend/main.go",
+        "hash": "16245901313098829889"
+      },
+      {
+        "file": "nx.json",
+        "hash": "3433631285036091687"
+      },
+      {
+        "file": "README.md",
+        "hash": "8133354554588138211"
+      },
+      {
+        "file": "yarn.lock",
+        "hash": "7121616469336463481"
+      }
+    ],
     "projectFileMap": {
+      "venci2": [
+        {
+          "file": "apps/frontend/.eslintrc.json",
+          "hash": "11012487992710232822"
+        },
+        {
+          "file": "apps/frontend/.gitignore",
+          "hash": "16591771903022963855"
+        },
+        {
+          "file": "apps/frontend/index.html",
+          "hash": "13778519401679032848"
+        },
+        {
+          "file": "apps/frontend/project.json",
+          "hash": "154185894230264680"
+        },
+        {
+          "file": "apps/frontend/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "apps/frontend/src/app/app.spec.tsx",
+          "hash": "17927301846083711092",
+          "deps": [
+            "npm:@testing-library/react"
+          ]
+        },
+        {
+          "file": "apps/frontend/src/app/app.tsx",
+          "hash": "17489901766978342988",
+          "deps": [
+            "npm:styled-components"
+          ]
+        },
+        {
+          "file": "apps/frontend/src/app/nx-welcome.tsx",
+          "hash": "13758118578713308242"
+        },
+        {
+          "file": "apps/frontend/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/frontend/src/main.tsx",
+          "hash": "3322498123780313940",
+          "deps": [
+            "npm:react",
+            "npm:react-dom"
+          ]
+        },
+        {
+          "file": "apps/frontend/tsconfig.app.json",
+          "hash": "7232119452847825095"
+        },
+        {
+          "file": "apps/frontend/tsconfig.json",
+          "hash": "11166545116916107487"
+        },
+        {
+          "file": "apps/frontend/tsconfig.spec.json",
+          "hash": "9472099605191632308"
+        },
+        {
+          "file": "apps/frontend/vite.config.ts",
+          "hash": "8591323810310508025",
+          "deps": [
+            "npm:vite",
+            "npm:@vitejs/plugin-react",
+            "npm:@nx/vite/plugins/nx-tsconfig-paths.plugin"
+          ]
+        }
+      ],
       "venci2-e2e": [
         {
           "file": "apps/frontend-e2e/.eslintrc.json",
@@ -89,114 +204,7 @@
           "file": "apps/frontend-e2e/tsconfig.json",
           "hash": "10740392072068377465"
         }
-      ],
-      "venci2": [
-        {
-          "file": "apps/frontend/.eslintrc.json",
-          "hash": "11012487992710232822"
-        },
-        {
-          "file": "apps/frontend/index.html",
-          "hash": "7777337710925822730"
-        },
-        {
-          "file": "apps/frontend/project.json",
-          "hash": "154185894230264680"
-        },
-        {
-          "file": "apps/frontend/public/favicon.ico",
-          "hash": "9303420814833116677"
-        },
-        {
-          "file": "apps/frontend/src/app/app.spec.tsx",
-          "hash": "17645478048199454062",
-          "deps": [
-            "npm:@testing-library/react"
-          ]
-        },
-        {
-          "file": "apps/frontend/src/app/app.tsx",
-          "hash": "17489901766978342988",
-          "deps": [
-            "npm:styled-components"
-          ]
-        },
-        {
-          "file": "apps/frontend/src/app/nx-welcome.tsx",
-          "hash": "13758118578713308242"
-        },
-        {
-          "file": "apps/frontend/src/assets/.gitkeep",
-          "hash": "3244421341483603138"
-        },
-        {
-          "file": "apps/frontend/src/main.tsx",
-          "hash": "4731961929376199421",
-          "deps": [
-            "npm:react",
-            "npm:react-dom/client"
-          ]
-        },
-        {
-          "file": "apps/frontend/tsconfig.app.json",
-          "hash": "7232119452847825095"
-        },
-        {
-          "file": "apps/frontend/tsconfig.json",
-          "hash": "11166545116916107487"
-        },
-        {
-          "file": "apps/frontend/tsconfig.spec.json",
-          "hash": "9472099605191632308"
-        },
-        {
-          "file": "apps/frontend/vite.config.ts",
-          "hash": "8591323810310508025",
-          "deps": [
-            "npm:vite",
-            "npm:@vitejs/plugin-react",
-            "npm:@nx/vite/plugins/nx-tsconfig-paths.plugin"
-          ]
-        }
       ]
-    },
-    "nonProjectFiles": [
-      {
-        "file": ".gitignore",
-        "hash": "16591771903022963855"
-      },
-      {
-        "file": "README.md",
-        "hash": "8133354554588138211"
-      },
-      {
-        "file": "apps/backend/database/connect.go",
-        "hash": "4860187921121693569"
-      },
-      {
-        "file": "apps/backend/go.mod",
-        "hash": "908661775797122373"
-      },
-      {
-        "file": "apps/backend/go.sum",
-        "hash": "1878944009585756967"
-      },
-      {
-        "file": "apps/backend/main.go",
-        "hash": "16245901313098829889"
-      },
-      {
-        "file": "nx.json",
-        "hash": "3433631285036091687"
-      },
-      {
-        "file": "package.json",
-        "hash": "9290540296178470381"
-      },
-      {
-        "file": "tsconfig.base.json",
-        "hash": "16936441711144470533"
-      }
-    ]
+    }
   }
 }

@@ -1,0 +1,22 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+out/
+build/
+
+# Environment files
+.env
+.env.local
+
+# Nx specific
+nx/nx-cloud*
+.nx
+.nx/cache/*
+daemon.log
+file-map.json
+# System files
+.DS_Store
+Thumbs.db
+
