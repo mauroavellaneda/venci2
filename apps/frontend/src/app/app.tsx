@@ -1,6 +1,6 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 import AddArticle from './components/articles/AddArticle';
 
 interface Article {
@@ -14,6 +14,15 @@ export function App() {
     const endpoint = 'http://localhost:4000';
     const fetcher = (url: string) => fetch(`${endpoint}/${url}`).then((res) => res.json());
     const { data, error } = useSWR('api/articles', fetcher);
+
+    const [articleAdded, setArticleAdded] = useState(false);
+
+    useEffect(() => {
+        if (articleAdded) {
+            mutate('api/articles');
+            setArticleAdded(false); // Reset the flag
+        }
+    }, [articleAdded]);
 
     return (
         <Fragment>
@@ -33,7 +42,7 @@ export function App() {
                     <LoadingText>Loading...</LoadingText>
                 )}
             </StyledApp>
-            <AddArticle />
+            <AddArticle onArticleAdded={() => setArticleAdded(true)} />
         </Fragment>
     );
 }

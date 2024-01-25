@@ -1,27 +1,47 @@
 import React, { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
-const AddArticle = () => {
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [author, setAuthor] = useState('');
+interface AddArticleProps {
+    onArticleAdded: () => void;
+}
+interface IFormInput {
+    title: string;
+    content: string;
+    author: string;
+}
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        console.log('Submitting', { title, content, author });
+const schema = yup
+    .object({
+        title: yup.string().required('Title is required'),
+        content: yup.string().required('Content is required'),
+        author: yup.string().required('Author is required'),
+    })
+    .required();
 
+const AddArticle = (props: AddArticleProps) => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<IFormInput>({
+        resolver: yupResolver(schema),
+    });
+
+    const onSubmit: SubmitHandler<IFormInput> = async (data) => {
         try {
             const response = await fetch('http://localhost:4000/api/articles', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ title, content, author }),
+                body: JSON.stringify(data),
             });
+
             if (response.ok) {
-                setTitle('');
-                setContent('');
-                setAuthor('');
+                props.onArticleAdded();
             }
         } catch (error) {
             console.error('Error during submission:', error);
@@ -30,18 +50,21 @@ const AddArticle = () => {
 
     return (
         <Container>
-            <StyledForm onSubmit={handleSubmit}>
+            <StyledForm onSubmit={handleSubmit(onSubmit)}>
                 <FormGroup>
                     <StyledLabel htmlFor='title'>Title</StyledLabel>
-                    <StyledInput type='text' id='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <StyledInput type='text' {...register('title')} />
+                    {errors.title && <ErrorText>{errors.title.message}</ErrorText>}
                 </FormGroup>
                 <FormGroup>
                     <StyledLabel htmlFor='content'>Content</StyledLabel>
-                    <StyledTextarea id='content' value={content} onChange={(e) => setContent(e.target.value)} />
+                    <StyledTextarea {...register('content')} />
+                    {errors.content && <ErrorText>{errors.content.message}</ErrorText>}
                 </FormGroup>
                 <FormGroup>
                     <StyledLabel htmlFor='author'>Author</StyledLabel>
-                    <StyledInput type='text' id='author' value={author} onChange={(e) => setAuthor(e.target.value)} />
+                    <StyledInput type='text' {...register('author')} />
+                    {errors.author && <ErrorText>{errors.author.message}</ErrorText>}
                 </FormGroup>
                 <StyledButton type='submit'>Add Article</StyledButton>
             </StyledForm>
@@ -50,6 +73,13 @@ const AddArticle = () => {
 };
 
 export default AddArticle;
+
+const ErrorText = styled.div`
+    color: #ff3860; // Bright red color for error messages
+    font-size: 14px; // Smaller font size for errors
+    margin-top: 5px; // Spacing above the error message
+    margin-bottom: 10px; // Spacing below the error message
+`;
 
 const Container = styled.div`
     padding: 20px;
