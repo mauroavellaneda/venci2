@@ -2,6 +2,12 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import useSWR from 'swr';
 
+interface Article {
+    id: number;
+    title: string;
+    content: string;
+}
+
 export function App() {
     const endpoint = 'http://localhost:4000';
     const fetcher = (url: string) => fetch(`${endpoint}/${url}`).then((res) => res.json());
@@ -16,11 +22,10 @@ export function App() {
             {error && <ErrorText>Error: {error.message}</ErrorText>}
             {data ? (
                 <DataContainer>
-                    {data.map((article, index) => (
+                    {data.map((article: Article, index: number) => (
                         <Article key={index}>
                             <ArticleTitle>{article.title}</ArticleTitle>
                             <ArticleContent>{article.content}</ArticleContent>
-                            {/* Render other fields as needed */}
                         </Article>
                     ))}
                 </DataContainer>
