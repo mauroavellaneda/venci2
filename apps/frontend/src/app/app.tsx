@@ -1,17 +1,71 @@
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-
-import NxWelcome from './nx-welcome';
-
-const StyledApp = styled.div`
-  // Your style here
-`;
+import useSWR from 'swr';
 
 export function App() {
-  return (
-    <StyledApp>
-      <NxWelcome title="Venci2" />
-    </StyledApp>
-  );
+    const endpoint = 'http://localhost:4000';
+    const fetcher = (url: string) => fetch(`${endpoint}/${url}`).then((res) => res.json());
+    const { data, error } = useSWR('api/articles', fetcher);
+
+    useEffect(() => {
+        console.log(data, error);
+    }, [data, error]);
+
+    return (
+        <StyledApp>
+            {error && <ErrorText>Error: {error.message}</ErrorText>}
+            {data ? (
+                <DataContainer>
+                    {data.map((article, index) => (
+                        <Article key={index}>
+                            <ArticleTitle>{article.title}</ArticleTitle>
+                            <ArticleContent>{article.content}</ArticleContent>
+                            {/* Render other fields as needed */}
+                        </Article>
+                    ))}
+                </DataContainer>
+            ) : (
+                <LoadingText>Loading...</LoadingText>
+            )}
+        </StyledApp>
+    );
 }
 
 export default App;
+
+const StyledApp = styled.div`
+    padding: 20px;
+`;
+
+const DataContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`;
+
+const Article = styled.div`
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+`;
+
+const ArticleTitle = styled.h2`
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+`;
+
+const ArticleContent = styled.p`
+    color: #666;
+    font-size: 18px;
+`;
+
+const ErrorText = styled.div`
+    color: red;
+    font-size: 20px;
+`;
+
+const LoadingText = styled.div`
+    color: green;
+    font-size: 20px;
+`;
