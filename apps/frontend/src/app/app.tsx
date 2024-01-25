@@ -20,7 +20,7 @@ export function App() {
     useEffect(() => {
         if (articleAdded) {
             mutate('api/articles');
-            setArticleAdded(false); // Reset the flag
+            setArticleAdded(false);
         }
     }, [articleAdded]);
 
