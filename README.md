@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Venci2 is a custom-built Content Management System (CMS) designed to streamline content creation, management, and delivery for digital platforms. Our CMS will empower users with intuitive content management tools and ensure seamless content delivery to external websites via a robust API.
+Venci2 will be a custom-built Content Management System (CMS) designed to streamline content creation, management, and delivery for digital platforms. Our CMS will empower users with intuitive content management tools and ensure seamless content delivery to external websites via a robust API.
 
 ## Features
 
