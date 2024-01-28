@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import useSWR, { mutate } from 'swr';
-import AddArticle from './components/articles/AddArticle';
+import AddArticle, { IFormInput, StyledButton } from './components/articles/AddArticle';
 
 interface Article {
     id: number;
@@ -12,37 +12,58 @@ interface Article {
 
 export function App() {
     const endpoint = 'http://localhost:4000';
+    const articlesEndpoint = 'api/articles';
+
+    const [updatingArticle, setUpdatingArticle] = useState<(IFormInput & { id: number }) | null>(null);
+
     const fetcher = (url: string) => fetch(`${endpoint}/${url}`).then((res) => res.json());
-    const { data, error } = useSWR('api/articles', fetcher);
+    const { data, error, isLoading } = useSWR(articlesEndpoint, fetcher);
 
     const [articleAdded, setArticleAdded] = useState(false);
 
     useEffect(() => {
         if (articleAdded) {
-            mutate('api/articles');
+            mutate(articlesEndpoint);
             setArticleAdded(false);
         }
     }, [articleAdded]);
+
+    const onEditArticle = (article: Article) => {
+        const articleToUpdate: IFormInput & { id: number } = {
+            title: article.title,
+            content: article.content,
+            author: article.author,
+            id: article.id,
+        };
+        setUpdatingArticle(articleToUpdate);
+    };
 
     return (
         <Fragment>
             <StyledApp>
                 {error && <ErrorText>Error: {error.message}</ErrorText>}
-                {data ? (
+                {data && (
                     <DataContainer>
                         {data.map((article: Article) => (
                             <ArticleCard key={article.id}>
                                 <ArticleTitle>{article.title}</ArticleTitle>
                                 <ArticleContent>{article.content}</ArticleContent>
                                 <ArticleAuthor>By: {article.author}</ArticleAuthor>
+                                <StyledButton onClick={() => onEditArticle(article)}>Edit</StyledButton>
                             </ArticleCard>
                         ))}
                     </DataContainer>
-                ) : (
-                    <LoadingText>Loading...</LoadingText>
                 )}
+                {isLoading && <LoadingText>Loading...</LoadingText>}
             </StyledApp>
-            <AddArticle onArticleAdded={() => setArticleAdded(true)} />
+            <AddArticle
+                onArticleAdded={() => {
+                    setArticleAdded(true);
+                    setUpdatingArticle(null); // Reset updating article after update
+                }}
+                isUpdating={Boolean(updatingArticle)}
+                articleToUpdate={updatingArticle}
+            />
         </Fragment>
     );
 }

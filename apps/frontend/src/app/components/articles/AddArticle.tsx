@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import * as yup from 'yup';
@@ -6,8 +6,11 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 interface AddArticleProps {
     onArticleAdded: () => void;
+    isUpdating?: boolean;
+    articleToUpdate?: (IFormInput & { id: number }) | null;
 }
-interface IFormInput {
+
+export interface IFormInput {
     title: string;
     content: string;
     author: string;
@@ -26,14 +29,27 @@ const AddArticle = (props: AddArticleProps) => {
         register,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm<IFormInput>({
         resolver: yupResolver(schema),
+        defaultValues: props.articleToUpdate ? props.articleToUpdate : {},
     });
 
+    useEffect(() => {
+        if (props.isUpdating && props.articleToUpdate) {
+            reset(props.articleToUpdate);
+        }
+    }, [props.isUpdating, props.articleToUpdate, reset]);
+
     const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+        const url = `http://localhost:4000/api/articles${
+            props.isUpdating && props.articleToUpdate ? `/${props.articleToUpdate.id}` : ''
+        }`;
+        const method = props.isUpdating ? 'PUT' : 'POST';
+
         try {
-            const response = await fetch('http://localhost:4000/api/articles', {
-                method: 'POST',
+            const response = await fetch(url, {
+                method: method,
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -124,7 +140,7 @@ const StyledTextarea = styled.textarea`
     min-height: 100px;
 `;
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
     padding: 10px 20px;
     font-size: 18px;
     color: white;
