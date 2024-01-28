@@ -1,11 +1,13 @@
 package main
 
 import (
+	"context"
 	"log"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/jackc/pgx/v4"
 )
 
 type Article struct {
@@ -22,7 +24,26 @@ type Article struct {
 
 }
 
+var db *pgx.Conn
+
+func connectDB() {
+	var err error
+	db, err = pgx.Connect(context.Background(), "postgres://username:password@localhost:5432/dbname")
+	if err != nil {
+		log.Fatal("Unable to connect to database:", err)
+	}
+}
+
+func createArticle(article *Article) error {
+	_, err := db.Exec(context.Background(), "INSERT INTO articles (title, content, author, done) VALUES ($1, $2, $3, $4)",
+		article.Title, article.Content, article.Author, article.Done)
+	return err
+}
+
 func main() {
+
+	connectDB()
+	defer db.Close(context.Background())
 
 	app := fiber.New()
 
