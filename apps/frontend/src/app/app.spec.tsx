@@ -8,8 +8,8 @@ describe('App', () => {
         expect(baseElement).toBeTruthy();
     });
 
-    it('should have a greeting as the title', () => {
+    it('should show loading text', () => {
         const { getByText } = render(<App />);
-        expect(getByText(/Welcome venci2/gi)).toBeTruthy();
+        expect(getByText(/loading.../gi)).toBeTruthy();
     });
 });
