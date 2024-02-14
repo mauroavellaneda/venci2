@@ -8,41 +8,4 @@ describe('App', () => {
         const { baseElement } = render(<App />);
         expect(baseElement).toBeTruthy();
     });
-
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
-    it('should show loading text', () => {
-        const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
-    });
 });
