@@ -23,6 +23,6 @@ jobs:
                   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
 
             - name: Run Tests
-              run: npx nx affected:test
+              run: npx nx affected -t test --output-style=stream
               env:
                   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
