@@ -13,4 +13,36 @@ describe('App', () => {
         const { getByText } = render(<App />);
         expect(getByText(/loading.../gi)).toBeTruthy();
     });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
+    it('should show loading text', () => {
+        const { getByText } = render(<App />);
+        expect(getByText(/loading.../gi)).toBeTruthy();
+    });
 });
