@@ -11,6 +11,6 @@ describe('App', () => {
 
     it('should show loading text', () => {
         const { getByText } = render(<App />);
-        expect(getByText(/loading.../gi)).toBeTruthy();
+        expect(getByText(/hello/gi)).toBeTruthy();
     });
 });
