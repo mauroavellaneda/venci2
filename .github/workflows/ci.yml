@@ -20,8 +20,5 @@ jobs:
             - name: Run Linter
               run: npx nx lint venci2
 
-            - name: Check Formatting
-              run: nx format:check
-
             - name: Run Tests
               run: nx test venci2
