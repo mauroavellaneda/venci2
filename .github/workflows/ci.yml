@@ -19,6 +19,10 @@ jobs:
 
             - name: Run Linter
               run: npx nx lint venci2
+              env:
+                  NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
 
             - name: Run Tests
               run: npx nx test venci2
+              env:
+                  NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
