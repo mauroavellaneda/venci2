@@ -21,4 +21,4 @@ jobs:
               run: npx nx lint venci2
 
             - name: Run Tests
-              run: nx test venci2
+              run: npx nx test venci2
