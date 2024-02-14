@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, ReactElement } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import * as yup from 'yup';
@@ -24,7 +24,7 @@ const schema = yup
   })
   .required();
 
-const AddArticle = (props: AddArticleProps): void => {
+const AddArticle = (props: AddArticleProps): ReactElement => {
   const {
     register,
     handleSubmit,
