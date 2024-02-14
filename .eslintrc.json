@@ -80,7 +80,7 @@
                 ],
                 "@typescript-eslint/type-annotation-spacing": "warn",
                 "@typescript-eslint/naming-convention": [
-                    "warn",
+                    "off",
                     {
                         "selector": "variableLike",
                         "format": [
