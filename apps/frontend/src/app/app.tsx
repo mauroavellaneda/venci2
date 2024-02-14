@@ -63,7 +63,6 @@ export function App() {
             ))}
           </DataContainer>
         )}
-        <h1>new text</h1>
         {isLoading && <LoadingText>Loading...</LoadingText>}
         {venciForm()}
       </StyledApp>
