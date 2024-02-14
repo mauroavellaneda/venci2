@@ -35,7 +35,7 @@ export function App() {
     }
   }, [articleAdded]);
 
-  const onEditArticle = (article: Article) => {
+  const onEditArticle = (article: Article): void => {
     const articleToUpdate: IFormInput & { id: number } = {
       title: article.title,
       content: article.content,
@@ -69,7 +69,7 @@ export function App() {
       <AddArticle
         onArticleAdded={() => {
           setArticleAdded(true);
-          setUpdatingArticle(null); // Reset updating article after update
+          setUpdatingArticle(null);
         }}
         isUpdating={Boolean(updatingArticle)}
         articleToUpdate={updatingArticle}
