@@ -54,7 +54,7 @@ export function App() {
                         ))}
                     </DataContainer>
                 )}
-                {isLoading && <LoadingText>Loading</LoadingText>}
+                {isLoading && <LoadingText></LoadingText>}
             </StyledApp>
             <AddArticle
                 onArticleAdded={() => {
