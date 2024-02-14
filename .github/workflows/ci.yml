@@ -18,11 +18,11 @@ jobs:
               run: yarn install
 
             - name: Run Linter
-              run: npx nx affected:lint
+              run: npx nx lint venci2
               env:
                   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
 
             - name: Run Tests
-              run: npx nx affected:test
+              run: npx nx test venci2
               env:
                   NX_CLOUD_AUTH_TOKEN: ${{ secrets.NX_CLOUD_AUTH_TOKEN }}
