@@ -63,8 +63,7 @@ export function App() {
             ))}
           </DataContainer>
         )}
-              {isLoading && <LoadingText>Loading...</LoadingText>}
-              <h1>this is a text to show the guys if this works</h1>
+        {isLoading && <LoadingText>Loading...</LoadingText>}
         {venciForm()}
       </StyledApp>
       <AddArticle
