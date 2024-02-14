@@ -1,3 +1,3 @@
 export function venciForm(): string {
-  return 'venci-form';
+  return 'text from libs directory';
 }
