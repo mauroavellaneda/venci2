@@ -14,7 +14,7 @@ interface Article {
   author: string;
 }
 
-export function App() {
+export function App(): JSX.Element {
   const endpoint = 'http://localhost:4000';
   const articlesEndpoint = 'api/articles';
 
