@@ -64,6 +64,7 @@ export function App(): JSX.Element {
           </DataContainer>
         )}
         {isLoading && <LoadingText>Loading...</LoadingText>}
+        <h1>add text to test nx cloud</h1>
         {venciForm()}
       </StyledApp>
       <AddArticle
